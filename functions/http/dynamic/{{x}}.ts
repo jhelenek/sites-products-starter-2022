@@ -1,4 +1,4 @@
-export default function main(request) {
+export function main(request) {
   const { pathParams, queryParams, site } = request
 
   return {
