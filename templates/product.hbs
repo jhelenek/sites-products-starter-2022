@@ -19,7 +19,8 @@
         "price",
         "color",
         "brand",
-        "photoGallery"
+        "photoGallery",
+	"c_relatedProducts",
       ],
       "localization": {
           "locales": ["en"]
@@ -79,10 +80,25 @@
                             </button>
                         </div>
                 	<div class="section grid gap-x-5 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-x-5">
-				{{#each (sortBy photoGallery color}}
-					<h1> hi </h1>
-				{{/each}} 
-			</div>
+					{{#each c_relatedProducts}}
+						<div class="p-4 border-2 border-gray-50 rounded-xl hover:grow hover:shadow-lg">
+							<a href={{slug}} class="grid gap-y-5">
+								<div class="justify-self-center">
+									<img class="rounded-xl object-contain sm:h-80 md:h-96" src="{{photoGallery.[0].image.url}}">
+								</div>
+								<div class="grid gap-y-2">
+									<div class="product-grid-title">{{name}}</div>
+									<div class="product-grid-subtitle">
+										{{this.brand}}
+									</div>
+									<div class="product-grid-price">
+										${{price.value}} 
+									</div>
+								</div>
+							</a>
+						</div>
+					{{/each}} 
+				</div>
                     </div>
                 </div>
             </div>
